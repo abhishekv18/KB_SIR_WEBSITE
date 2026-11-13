@@ -72,7 +72,7 @@ export default function Hero() {
   return (
     <section ref={ref} className="on-dark relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-navy-950 text-white" aria-label="Introduction">
       {/* photograph — Kunal at his desk */}
-      <div data-media className="absolute inset-0 -z-10 max-lg:bottom-auto max-lg:h-[80%] max-lg:[mask-image:linear-gradient(180deg,#000_62%,transparent_100%)]" aria-hidden>
+      <div data-media className="absolute inset-0 -z-10 max-lg:bottom-auto max-lg:h-[80%] max-sm:h-[132vw] max-lg:[mask-image:linear-gradient(180deg,#000_62%,transparent_100%)]" aria-hidden>
         <picture>
           <source media="(max-width: 1023px)" srcSet="/assets/portraits/kb-studio-tall-640.webp 640w, /assets/portraits/kb-studio-tall-820.webp 820w" sizes="100vw" />
           <img
@@ -95,7 +95,7 @@ export default function Hero() {
       </div>
 
       {/* copy */}
-      <div data-hero-copy className="shell relative flex flex-1 flex-col justify-end pb-0 pt-28 lg:block lg:pb-0 lg:pt-[clamp(9rem,22.5vh,12.75rem)]">
+      <div data-hero-copy className="shell relative flex flex-1 flex-col justify-end pb-0 pt-28 max-sm:pt-[80vw] lg:block lg:pb-0 lg:pt-[clamp(9rem,22.5vh,12.75rem)]">
         <div className="max-w-[36rem]">
           <p data-hero-eyebrow className="mb-4 inline-flex lg:mb-5 items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/75">
             <span className="h-[2px] w-8 bg-gold" aria-hidden />

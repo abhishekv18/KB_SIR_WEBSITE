@@ -28,7 +28,7 @@ export default function CTABanner({ title = 'Let’s talk *business.*', text, im
           {/* phone / tablet: the photograph sits on top as its own frame, so Kunal is never cropped
               away behind the text; it melts into the panel colour at the bottom */}
           <div className="relative lg:hidden" aria-hidden>
-            <Img id={bg} tone="dark" ratio="auto" className="aspect-[4/3.3] sm:aspect-[16/8]" sizes="100vw" position={isKunal ? (images[bg]?.pos || '72% 35%') : '50% 50%'} alt="" />
+            <Img id={bg} tone="dark" ratio="auto" className="aspect-[4/3.3] sm:aspect-[16/8]" sizes="100vw" position={isKunal ? '100% 28%' : '50% 50%'} alt="" />
             <div className="absolute inset-0 bg-[linear-gradient(0deg,#151C26_0%,rgb(21_28_38/.85)_18%,rgb(21_28_38/.35)_45%,rgb(21_28_38/.18)_70%,rgb(21_28_38/.3)_100%)]" />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(21_28_38/.45)_0%,transparent_55%)]" />
           </div>

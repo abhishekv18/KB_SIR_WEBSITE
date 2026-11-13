@@ -1,0 +1,48 @@
+/**
+ * About page — DEMO content (structure only). Replace with Kunal's real biography,
+ * expertise, philosophy and dated milestones. No qualifications or achievements are claimed.
+ */
+export const about = {
+  status: 'demo',
+  hero: { title: 'The person behind *Minding Business*', text: 'Business coach and consultant.' },
+  intro: 'Demo introduction — one or two sentences in Kunal’s own voice about why he does this work and who he does it for.',
+  bio: [
+    'Demo biography paragraph. Describe Kunal’s background: where he started, the businesses he has worked in or built, and what led him to coaching.',
+    'Demo biography paragraph. Describe the kind of clients he works with today, the problems he helps them solve, and how his experience shapes his approach.',
+    'Demo biography paragraph. Close with what clients can expect from working with him.',
+  ],
+  expertise: [
+    { id: 'strategy', title: 'Strategy', text: 'Demo — turning ambition into a small number of clear priorities.', image: 'G15' },
+    { id: 'leadership', title: 'Leadership', text: 'Demo — helping owners lead people instead of doing every job themselves.', image: 'G16' },
+    { id: 'operations', title: 'Operations', text: 'Demo — building simple systems so the business runs without constant intervention.', image: 'G17' },
+    { id: 'brand', title: 'Brand', text: 'Demo — shaping how customers see and remember the business.', image: 'G18' },
+  ],
+  philosophy: {
+    quote: 'Demo philosophy line — the one sentence Kunal wants every client to remember.',
+    principles: [
+      { title: 'Clarity before effort', text: 'Demo principle — explain in one line.' },
+      { title: 'Small steps, kept', text: 'Demo principle — explain in one line.' },
+      { title: 'Honest conversations', text: 'Demo principle — explain in one line.' },
+    ],
+  },
+  journey: [
+    { year: 'Year', title: 'Demo milestone', text: 'A dated milestone from Kunal’s career will appear here.', image: 'G20' },
+    { year: 'Year', title: 'Demo milestone', text: 'Each milestone has a short description and an image.', image: 'G21' },
+    { year: 'Year', title: 'Demo milestone', text: 'Only real, owner-supplied milestones will be published.', image: 'G22' },
+    { year: 'Today', title: 'Minding Business', text: 'Business coaching and consulting for owners.', image: 'G23' },
+  ],
+}
+
+export const contactPage = {
+  status: 'demo',
+  steps: [
+    { title: 'Send your message', text: 'Tell me a little about your business and what you’d like to change.' },
+    { title: 'I’ll reply by email', text: 'Demo — confirm your actual response process and timing here.' },
+    { title: 'We arrange a conversation', text: 'Demo — describe the first call: length, format and what it covers.' },
+  ],
+  faq: [
+    { q: 'What happens in the first conversation?', a: 'Demo answer — describe the first conversation.' },
+    { q: 'Do you work with businesses outside my city?', a: 'Demo answer — confirm online and in-person availability.' },
+    { q: 'Is everything we discuss confidential?', a: 'Demo answer — confirm the confidentiality terms.' },
+  ],
+}

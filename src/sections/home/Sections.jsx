@@ -112,11 +112,12 @@ export function Challenges() {
   return (
     <section className="section pt-0 lg:pt-4" aria-labelledby="challenges-title">
       <div className="shell">
-        <div className="grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-12">
-          <div className="relative lg:col-span-5">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-12">
+          {/* phones/tablets: copy first, photo after the cards, so it never sits right under the About photo */}
+          <div className="relative order-last lg:order-none lg:col-span-5">
             <div className="overflow-hidden rounded-[16px]" data-reveal="clip">
               <div data-parallax="5" className="scale-[1.1]">
-                <Img id="R8" ratio="4 / 4.8" position="50% 30%" sizes="(min-width:1024px) 38vw, 100vw" />
+                <Img id="R8" ratio="auto" className="aspect-[4/3.4] sm:aspect-[16/10] lg:aspect-[4/4.8]" position="50% 30%" sizes="(min-width:1024px) 38vw, 100vw" />
               </div>
             </div>
             <div className="on-dark relative -mt-16 ml-4 mr-4 rounded-[14px] bg-navy p-6 text-white shadow-[0_40px_70px_-35px_rgb(21_28_38/.8)] sm:absolute sm:-bottom-8 sm:-right-8 sm:m-0 sm:w-72" data-reveal="up" data-delay="0.3">

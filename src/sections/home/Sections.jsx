@@ -120,10 +120,10 @@ export function Challenges() {
                 <Img id="R8" ratio="auto" className="aspect-[4/3.4] sm:aspect-[16/10] lg:aspect-[4/4.8]" position="50% 30%" sizes="(min-width:1024px) 38vw, 100vw" />
               </div>
             </div>
-            <div className="on-dark relative -mt-12 ml-auto mr-3 w-[78%] rounded-[12px] bg-navy p-4 text-white shadow-[0_30px_50px_-30px_rgb(21_28_38/.8)] sm:absolute sm:-bottom-6 sm:-right-6 sm:m-0 sm:w-60 sm:rounded-[14px] sm:p-5" data-reveal="up" data-delay="0.3">
-              <p className="font-display text-[1.02rem] font-semibold sm:text-[1.1rem]">{c.card.title}</p>
-              <p className="mt-1.5 text-[0.8rem] leading-relaxed text-white/70 sm:mt-2 sm:text-[0.84rem]">{c.card.text}</p>
-              <Link to="/methodology" className="mt-2.5 inline-flex items-center gap-1.5 py-1 text-[0.8rem] font-medium text-gold sm:mt-3 sm:text-[0.84rem]">See the process <ArrowUpRight size={14} strokeWidth={1.8} /></Link>
+            <div className="on-dark relative -mt-12 ml-auto mr-3 w-[72%] rounded-[12px] bg-navy px-4 py-3.5 text-white shadow-[0_30px_50px_-30px_rgb(21_28_38/.8)] sm:absolute sm:-bottom-6 sm:-right-6 sm:m-0 sm:w-56 sm:rounded-[14px] sm:p-[1.1rem]" data-reveal="up" data-delay="0.3">
+              <p className="font-display text-[0.95rem] font-semibold sm:text-[1.04rem]">{c.card.title}</p>
+              <p className="mt-1 text-[0.76rem] leading-relaxed text-white/70 sm:mt-1.5 sm:text-[0.8rem]">{c.card.text}</p>
+              <Link to="/methodology" className="mt-2 inline-flex items-center gap-1.5 py-1 text-[0.76rem] font-medium text-gold sm:mt-2.5 sm:text-[0.8rem]">See the process <ArrowUpRight size={13} strokeWidth={1.8} /></Link>
             </div>
           </div>
           <div className="lg:col-span-7 lg:pl-8">

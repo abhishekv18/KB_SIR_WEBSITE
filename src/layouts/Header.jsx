@@ -141,7 +141,7 @@ export default function Header() {
             </div>
             <nav aria-label="Mobile" className="shell mt-6 flex-1 overflow-y-auto">
               <ul className="divide-y divide-white/10 border-y border-white/10">
-                {[...site.nav, { label: 'Methodology', to: '/methodology' }, { label: 'Contact', to: '/contact' }].map((item, i) => (
+                {[...site.nav, { label: 'Contact', to: '/contact' }].map((item, i) => (
                   <motion.li key={item.to} initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.25 + i * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] } }}>
                     <NavLink to={item.to} end={item.to === '/'} className={({ isActive }) => `flex items-center justify-between py-3.5 font-[family-name:var(--font-nav)] text-[1.9rem] font-medium leading-tight ${isActive ? 'text-gold' : 'text-white'}`}>
                       {item.label}

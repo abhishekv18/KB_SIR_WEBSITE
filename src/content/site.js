@@ -34,7 +34,7 @@ export const site = {
   cta: { label: 'Book a consultation', to: '/contact' },
   /** Floating WhatsApp button. Set `number` to Kunal's WhatsApp number in international format,
    *  digits only (e.g. '919876543210'). While it is null the button shows only in development. */
-  whatsapp: { number: null, message: 'Hi Kunal, I found your website and would like to talk about my business.' },
+  whatsapp: { number: '917037750672', message: 'Hi Kunal, I found your website and would like to talk about my business.' },
 
   /** Form + newsletter providers. No backend exists — see docs/PROJECT_ARCHITECTURE.md.
    *  formEndpoint: set to a Formspree / Web3Forms URL once chosen; until then the form

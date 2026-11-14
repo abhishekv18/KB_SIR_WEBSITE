@@ -33,8 +33,8 @@ export default function App() {
             <Route path="insights/:slug" element={<Article />} />
             <Route path="contact" element={<Contact />} />
             <Route path="privacy" element={<Legal kind="privacy" />} />
-            <Route path="terms" element={<Legal kind="terms" />} />
-            <Route path="*" element={<NotFound />} /> */}
+            <Route path="terms" element={<Legal kind="terms" />} /> */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </ErrorBoundary>

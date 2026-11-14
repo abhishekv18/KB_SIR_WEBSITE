@@ -128,24 +128,24 @@ export default function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
-            className="on-dark fixed inset-0 z-[60] flex flex-col bg-navy text-white"
+            className="fixed inset-0 z-[60] flex flex-col bg-[#FAF7F1] bg-[radial-gradient(90%_55%_at_100%_0%,rgb(210_171_116/.14),transparent_70%)] text-navy"
             initial={{ clipPath: 'circle(0% at calc(100% - 2.6rem) 2.6rem)' }}
             animate={{ clipPath: 'circle(150% at calc(100% - 2.6rem) 2.6rem)', transition: { duration: 0.75, ease: [0.65, 0, 0.35, 1] } }}
             exit={{ clipPath: 'circle(0% at calc(100% - 2.6rem) 2.6rem)', transition: { duration: 0.5, ease: [0.65, 0, 0.35, 1] } }}
           >
             <div className="shell flex h-[4.75rem] items-center">
-              <img src="/assets/brand/kb-signature-white.png" alt="" width="500" height="200" className="h-auto w-[8.25rem]" />
-              <button autoFocus type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="ml-auto grid h-11 w-11 place-items-center rounded-full bg-white text-navy">
+              <img src="/assets/brand/kb-signature-colour.png" alt="" width="500" height="200" className="h-auto w-[8.25rem]" />
+              <button autoFocus type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="ml-auto grid h-11 w-11 place-items-center rounded-full bg-navy text-ivory">
                 <X size={19} strokeWidth={1.7} />
               </button>
             </div>
             <nav aria-label="Mobile" className="shell mt-6 flex-1 overflow-y-auto">
-              <ul className="divide-y divide-white/10 border-y border-white/10">
+              <ul className="divide-y divide-navy/10 border-y border-navy/10">
                 {[...site.nav, { label: 'Contact', to: '/contact' }].map((item, i) => (
                   <motion.li key={item.to} initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.25 + i * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] } }}>
-                    <NavLink to={item.to} end={item.to === '/'} className={({ isActive }) => `flex items-center justify-between py-3.5 font-[family-name:var(--font-nav)] text-[1.9rem] font-medium leading-tight ${isActive ? 'text-gold' : 'text-white'}`}>
+                    <NavLink to={item.to} end={item.to === '/'} className={({ isActive }) => `flex items-center justify-between py-3.5 font-[family-name:var(--font-nav)] text-[1.9rem] font-medium leading-tight ${isActive ? 'text-gold-ink' : 'text-navy'}`}>
                       {item.label}
-                      <span className="text-sm tracking-normal text-white/40">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="text-sm tracking-normal text-gold-ink/60">{String(i + 1).padStart(2, '0')}</span>
                     </NavLink>
                   </motion.li>
                 ))}
@@ -153,10 +153,10 @@ export default function Header() {
             </nav>
             <motion.div className="shell space-y-6 pb-10 pt-6" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.6 } }}>
               <Pill to={site.cta.to} variant="gold" className="w-full justify-between">{site.cta.label}</Pill>
-              <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+              <div className="flex items-center justify-between gap-4 text-sm text-navy/70">
                 <a href={`mailto:${site.email}`} className="flex min-w-0 items-center gap-2 py-2"><Mail size={16} strokeWidth={1.5} className="shrink-0" /> <span className="truncate">{site.email}</span></a>
                 <div className="flex gap-3">
-                  {site.socials.map((s) => (<a key={s.id} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="grid h-11 w-11 place-items-center rounded-full border border-white/25"><SocialIcon id={s.id} size={16} /></a>))}
+                  {site.socials.map((s) => (<a key={s.id} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="grid h-11 w-11 place-items-center rounded-full border border-navy/15 bg-white/70 text-navy"><SocialIcon id={s.id} size={16} /></a>))}
                 </div>
               </div>
             </motion.div>

@@ -13,15 +13,16 @@ export default function ServiceCard({ service, active = false, onActivate, flex 
     <Link
       to={`/services/${service.slug}`}
       data-card
-      onMouseEnter={onActivate}
-      onFocus={onActivate}
+      // touch screens fire mouseenter on tap/scroll — only desktop mice switch the active card
+      onMouseEnter={() => { if (onActivate && window.matchMedia('(hover: hover) and (min-width: 1024px)').matches) onActivate() }}
+      onFocus={() => { if (onActivate && window.matchMedia('(min-width: 1024px)').matches) onActivate() }}
       draggable={false}
       className={`group relative flex shrink-0 snap-start flex-col overflow-hidden rounded-[16px] p-3.5 transition-[background-color,color,box-shadow,flex-grow,transform] duration-700 ease-[var(--ease-out-expo)] ${
         flex ? `w-[86%] max-w-[21rem] sm:w-[20rem] lg:w-auto lg:max-w-none lg:basis-0 ${active ? 'lg:grow-[1.5]' : 'lg:grow'}` : 'w-[82vw] max-w-[22rem] sm:w-[21rem]'
       } ${
         active
           ? 'bg-navy text-ivory shadow-[0_30px_50px_-35px_rgb(36_48_63/.6)]'
-          : `${TINTS[tint % TINTS.length]} text-navy hover:-translate-y-1`
+          : `${TINTS[tint % TINTS.length]} text-navy [@media(hover:hover)_and_(min-width:1024px)]:hover:-translate-y-1`
       } ${className}`}
     >
       <div className="relative flex items-center justify-between px-1.5 pt-1.5">

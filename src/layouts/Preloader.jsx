@@ -97,28 +97,28 @@ export default function Preloader() {
     <div
       role="status"
       aria-label="Loading"
-      className={`fixed inset-0 z-[90] grid place-items-center bg-navy-950 transition-transform duration-[800ms] ease-[cubic-bezier(.76,0,.24,1)] ${leaving ? '-translate-y-full' : 'translate-y-0'}`}
+      className={`fixed inset-0 z-[90] grid place-items-center bg-[#FAF7F1] transition-transform duration-[800ms] ease-[cubic-bezier(.76,0,.24,1)] ${leaving ? '-translate-y-full' : 'translate-y-0'}`}
     >
       {/* faint warm glow, like the gold-lit office in the photography */}
-      <span aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(45%_40%_at_50%_55%,rgb(210_171_116/.10),transparent_70%)]" />
+      <span aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_45%_at_50%_52%,rgb(210_171_116/.16),transparent_72%)]" />
 
       <div className={`relative flex flex-col items-center transition-[opacity,transform] duration-[800ms] ease-[cubic-bezier(.76,0,.24,1)] ${leaving ? 'translate-y-10 opacity-60' : 'translate-y-0 opacity-100'}`}>
         {/* signature written in left → right */}
         <img
-          src="/assets/brand/kb-signature-white.png"
+          src="/assets/brand/kb-signature-colour.png"
           alt=""
           width="500"
           height="200"
-          className="h-auto w-[min(15rem,60vw)] opacity-95 transition-[clip-path] duration-[1100ms] ease-[cubic-bezier(.45,0,.2,1)]"
+          className="h-auto w-[min(15rem,60vw)] transition-[clip-path] duration-[1100ms] ease-[cubic-bezier(.45,0,.2,1)]"
           style={{ clipPath: writing ? 'inset(0 0% 0 0)' : 'inset(0 100% 0 0)' }}
         />
 
         {/* load progress — a single gold hairline */}
-        <div className="relative mt-7 h-px w-40 overflow-hidden bg-white/12" aria-hidden>
+        <div className="relative mt-7 h-px w-40 overflow-hidden bg-navy/10" aria-hidden>
           <span className="absolute inset-y-0 left-0 bg-gold transition-[width] duration-300 ease-out" style={{ width: `${Math.round(progress * 100)}%` }} />
         </div>
 
-        <p className={`mt-5 text-[0.62rem] font-medium uppercase tracking-[0.42em] text-white/50 transition-opacity delay-500 duration-700 ${writing ? 'opacity-100' : 'opacity-0'}`}>
+        <p className={`mt-5 text-[0.62rem] font-medium uppercase tracking-[0.42em] text-gold-ink/80 transition-opacity delay-500 duration-700 ${writing ? 'opacity-100' : 'opacity-0'}`}>
           Minding Business
         </p>
       </div>

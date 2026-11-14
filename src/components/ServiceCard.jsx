@@ -31,7 +31,7 @@ export default function ServiceCard({ service, active = false, onActivate, flex 
           <ArrowUpRight size={18} strokeWidth={1.7} />
         </span>
       </div>
-      <h3 className="relative mt-8 px-1.5 font-display text-[1.35rem] font-semibold leading-[1.2]">{service.title}</h3>
+      <h3 className="relative mt-6 px-1.5 font-display text-[1.18rem] font-semibold leading-[1.2]">{service.title}</h3>
       <p className={`relative mt-2.5 line-clamp-3 min-h-[4.6em] px-1.5 text-[0.875rem] leading-relaxed ${active ? 'text-white/70' : 'text-ink-muted'}`}>{service.short}</p>
       <div className="relative mt-5 overflow-hidden rounded-[16px]">
         <Img
@@ -39,7 +39,7 @@ export default function ServiceCard({ service, active = false, onActivate, flex 
           ratio="auto"
           sizes="(min-width:1024px) 30vw, 340px"
           tone={active ? 'dark' : 'light'}
-          className="aspect-[4/3] rounded-[16px] lg:aspect-auto lg:h-[15.5rem]"
+          className="aspect-[16/11] rounded-[16px] lg:aspect-auto lg:h-[13.5rem]"
           imgClassName="transition-transform duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-[1.07]"
         />
       </div>

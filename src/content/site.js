@@ -80,7 +80,7 @@ export const home = {
     text: [
       // DRAFT copy (status: demo) — written from verified facts only; Kunal to review before launch.
       'Kunal works with business owners who are carrying too much: every decision, every fire, every plan that never quite gets started. His job is to help you think clearly, decide what matters and follow through.',
-      'Through one-to-one, face-to-face, group and executive coaching, he helps owners build businesses that run on clear priorities rather than constant pressure — and become the best version of themselves along the way.',
+      'Through one-to-one, face-to-face, group and executive coaching, he helps owners build businesses that run on clear priorities rather than constant pressure, and become the best version of themselves along the way.',
     ],
     note: 'Business coach and consultant behind Minding Business.',
     card: { title: 'Minding Business', text: 'Coaching built around how your business actually runs.' },
@@ -92,7 +92,7 @@ export const home = {
     intro: 'Most owners don’t lack effort. They lack the time and distance to think. These are the problems coaching is built to solve.',
     items: [
       { icon: 'trending', title: 'Growth has stalled', text: 'Revenue has plateaued and more hours aren’t moving it.' },
-      { icon: 'layers', title: 'You’re wearing every hat', text: 'Sales, operations, hiring — everything still runs through you.' },
+      { icon: 'layers', title: 'You’re wearing every hat', text: 'Sales, operations and hiring all still run through you.' },
       { icon: 'map', title: 'There’s no clear plan', text: 'Busy every week, without a direction for the year.' },
       { icon: 'users', title: 'The team isn’t aligned', text: 'People work hard but pull in different directions.' },
     ],
@@ -101,7 +101,7 @@ export const home = {
   servicesIntro: {
     label: 'Coaching services',
     title: 'Coaching shaped around *your business*',
-    text: 'One-to-one, face-to-face, in a group or at leadership level — choose the format that fits how you work.',
+    text: 'One-to-one, face-to-face, in a group or at leadership level. Choose the format that fits how you work.',
   },
   methodIntro: {
     label: 'How it works',
@@ -114,7 +114,7 @@ export const home = {
       { title: 'Make a decision', text: 'Decide that the way things run today is not how they have to run. That choice is the real first step.', image: 'S02' },
       { title: 'Schedule a meeting', text: 'Book a consultation. We talk through where the business is, where you want it to go and what is in the way.', image: 'S03' },
       { title: 'Show commitment', text: 'We agree a plan and a rhythm of sessions. You do the work between them; I keep you focused and accountable.', image: 'S04' },
-      { title: 'Transformation completed', text: 'Clearer priorities, better decisions and a business that depends less on you — results you can see and keep.', image: 'S05' },
+      { title: 'Transformation completed', text: 'Clearer priorities, better decisions and a business that depends less on you. Results you can see and keep.', image: 'S05' },
     ],
     ready: { title: 'Ready to *start?*', text: 'Tell me where your business is today. We will work out the first step together.', cta: 'Let’s talk' },
   },
@@ -151,7 +151,7 @@ export const home = {
   insightsIntro: {
     label: 'Insights',
     title: 'Ideas for building a *stronger business*',
-    text: 'Practical thinking on strategy, brand and running a business — written for owners.',
+    text: 'Practical thinking on strategy, brand and running a business, written for owners.',
   },
   testimonialsIntro: {
     label: 'Testimonials',

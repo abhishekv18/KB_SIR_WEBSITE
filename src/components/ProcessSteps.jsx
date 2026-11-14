@@ -93,7 +93,7 @@ export default function ProcessSteps({ steps, numbered = true, tall = false, com
             </motion.div>
           </AnimatePresence>
           <span className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-[0.8rem] font-medium text-navy backdrop-blur-md">
-            Step {String(active + 1).padStart(2, '0')} · {steps[active].title}
+            Step {String(active + 1).padStart(2, '0')}
           </span>
         </div>
       </div>

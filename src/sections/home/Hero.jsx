@@ -101,7 +101,7 @@ export default function Hero() {
             <span className="h-[2px] w-8 bg-gold" aria-hidden />
             {site.role}
           </p>
-          <h1 className="text-[clamp(2.15rem,4.3vw,3.35rem)] font-semibold leading-[1.1] tracking-[-0.02em] [&_em]:not-italic [&_em]:text-gold">
+          <h1 className="text-[clamp(1.9rem,3.9vw,3rem)] font-semibold leading-[1.1] tracking-[-0.02em] [&_em]:not-italic [&_em]:text-gold">
             {hero.titleLines.map((l, i) => (
               <span key={i} data-hero-line className="split-line"><span className="block"><Accent text={l} /></span></span>
             ))}

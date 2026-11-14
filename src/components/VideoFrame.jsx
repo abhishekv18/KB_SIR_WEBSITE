@@ -57,7 +57,7 @@ export default function VideoFrame({ url, thumbnail = 'G10', caption, meta, titl
           <p className="text-lg font-semibold leading-snug sm:text-2xl">{caption}</p>
           {!id && <p className="mt-1 text-sm text-white/70">Video coming soon</p>}
         </div>
-        {id && <p className="shrink-0 text-[0.8rem] text-white/70 max-sm:hidden">Plays here · via YouTube</p>}
+        
       </div>
     </div>
   )

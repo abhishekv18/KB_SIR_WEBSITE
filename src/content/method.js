@@ -8,7 +8,7 @@ export const method = {
   steps: [
     {
       title: 'Understand your business',
-      text: 'We start with an honest look at where the business is today — numbers, people, pressure points and what you want it to become.',
+      text: 'We start with an honest look at where the business is today: numbers, people, pressure points and what you want it to become.',
       gives: 'A clear picture of the starting point',
       image: 'G02',
     },
@@ -26,7 +26,7 @@ export const method = {
     },
     {
       title: 'Review and grow',
-      text: 'We look at what changed, what didn’t and why — then set the next round of priorities so progress compounds.',
+      text: 'We look at what changed, what didn’t and why, then set the next round of priorities so progress compounds.',
       gives: 'Measured progress and the next steps',
       image: 'G05',
     },

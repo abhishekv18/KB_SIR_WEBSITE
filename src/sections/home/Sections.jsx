@@ -85,9 +85,6 @@ export function About() {
                 <Img id="R7" ratio="4 / 4.2" position="45% 20%" sizes="(min-width:1024px) 40vw, 100vw" />
               </div>
               <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgb(21_28_38/.35),transparent_40%)]" />
-              <span className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-1.5 text-[0.75rem] font-medium text-navy backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />Kunal Bhardwaj · On stage
-              </span>
             </div>
             <div className="relative -mt-12 mr-auto w-[90%] max-w-[21rem] rounded-[16px] bg-white p-3 shadow-[0_40px_70px_-35px_rgb(36_48_63/.6)] ring-1 ring-line sm:absolute sm:-bottom-10 sm:left-0 sm:mt-0 lg:-left-10" data-reveal="up" data-delay="0.4">
               <div className="flex items-center gap-4">
@@ -257,12 +254,12 @@ export function Video() {
           </div>
         </div>
 
-        <div className="-mx-2 mt-8 overflow-hidden rounded-[16px] shadow-[0_50px_90px_-55px_rgb(21_28_38/.85)] sm:mx-auto sm:mt-10 sm:max-w-[1080px] sm:rounded-[18px]" data-reveal="grow">
+        <div className="-mx-2 mt-8 overflow-hidden rounded-[16px] shadow-[0_50px_90px_-55px_rgb(21_28_38/.85)] sm:mx-auto sm:mt-10 sm:max-w-[960px] sm:rounded-[18px]" data-reveal="grow">
           <VideoFrame url={v.url} thumbnail={v.thumbnail} meta={v.meta} caption={v.caption} position="50% 32%" title={v.caption} />
         </div>
 
         <div className="mt-10 flex items-end justify-between gap-6">
-          <h3 className="text-[1.15rem] font-semibold">Short takes <span className="font-normal text-ink-muted">· one idea in under a minute</span></h3>
+          <h3 className="text-[1.15rem] font-semibold">Shorts</h3>
         </div>
         <div className="mt-6"><ShortsRow shorts={v.shorts} channelUrl={v.channelUrl} /></div>
       </div>

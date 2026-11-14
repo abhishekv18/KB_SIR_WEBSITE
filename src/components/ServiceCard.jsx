@@ -17,7 +17,7 @@ export default function ServiceCard({ service, active = false, onActivate, flex 
       onFocus={onActivate}
       draggable={false}
       className={`group relative flex shrink-0 snap-start flex-col overflow-hidden rounded-[16px] p-3.5 transition-[background-color,color,box-shadow,flex-grow,transform] duration-700 ease-[var(--ease-out-expo)] ${
-        flex ? `w-[78vw] max-w-[21rem] sm:w-[20rem] lg:w-auto lg:max-w-none lg:basis-0 ${active ? 'lg:grow-[1.5]' : 'lg:grow'}` : 'w-[82vw] max-w-[22rem] sm:w-[21rem]'
+        flex ? `w-[86%] max-w-[21rem] sm:w-[20rem] lg:w-auto lg:max-w-none lg:basis-0 ${active ? 'lg:grow-[1.5]' : 'lg:grow'}` : 'w-[82vw] max-w-[22rem] sm:w-[21rem]'
       } ${
         active
           ? 'bg-navy text-ivory shadow-[0_30px_50px_-35px_rgb(36_48_63/.6)]'

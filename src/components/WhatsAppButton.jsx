@@ -39,7 +39,7 @@ export default function WhatsAppButton() {
       <span className="mr-3 hidden translate-x-2 whitespace-nowrap rounded-full bg-white px-4 py-2 text-[0.85rem] font-medium text-navy opacity-0 shadow-[0_14px_30px_-16px_rgb(36_48_63/.5)] ring-1 ring-line transition-[opacity,transform] duration-500 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 sm:block">
         {number ? 'Chat on WhatsApp' : 'WhatsApp number not set yet'}
       </span>
-      <span className="relative grid h-[3.25rem] w-[3.25rem] place-items-center">
+      <span className="relative grid h-12 w-12 place-items-center sm:h-[3.25rem] sm:w-[3.25rem]">
         {/* soft halo rings */}
         <span className="absolute inset-[-5px] rounded-full bg-[#25D366]/15 ring-1 ring-[#25D366]/25" aria-hidden />
         <span className="absolute inset-0 rounded-full bg-[#25D366]/35 motion-safe:animate-[wa-pulse_2.8s_ease-out_infinite]" aria-hidden />

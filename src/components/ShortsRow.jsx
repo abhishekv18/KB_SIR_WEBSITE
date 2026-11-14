@@ -23,9 +23,9 @@ export default function ShortsRow({ shorts, channelUrl }) {
 
   return (
     <>
-      <ul className="no-scrollbar -mx-[clamp(1.25rem,4vw,3.5rem)] flex snap-x snap-mandatory gap-4 overflow-x-auto px-[clamp(1.25rem,4vw,3.5rem)] pb-2 lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0" data-stagger>
+      <ul className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0" data-stagger>
         {shorts.map((s) => (
-          <li key={s.id} className="w-[58vw] max-w-[15rem] shrink-0 snap-start sm:w-[42vw] sm:max-w-[13rem] lg:w-auto lg:max-w-none">
+          <li key={s.id} className="w-[62%] max-w-[15rem] shrink-0 snap-start sm:w-[42vw] sm:max-w-[13rem] lg:w-auto lg:max-w-none">
             <button
               type="button"
               onClick={(e) => { lastBtn.current = e.currentTarget; setActive(s) }}
@@ -42,7 +42,7 @@ export default function ShortsRow({ shorts, channelUrl }) {
             </button>
           </li>
         ))}
-        <li className="w-[58vw] max-w-[15rem] shrink-0 snap-start sm:w-[42vw] sm:max-w-[13rem] lg:w-auto lg:max-w-none">
+        <li className="w-[62%] max-w-[15rem] shrink-0 snap-start sm:w-[42vw] sm:max-w-[13rem] lg:w-auto lg:max-w-none">
           <a href={channelUrl} target="_blank" rel="noreferrer" className="group flex aspect-[9/14] h-full w-full flex-col justify-between rounded-[14px] bg-white p-4 ring-1 ring-line transition-colors duration-500 hover:bg-navy hover:text-ivory">
             <span className="grid h-11 w-11 place-items-center rounded-full bg-[#FF0000] text-white" aria-hidden><SocialIcon id="youtube" size={18} /></span>
             <span>

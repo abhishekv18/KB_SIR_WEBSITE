@@ -162,7 +162,7 @@ export function Services() {
       <div className="shell">
         <SectionHeading id="services-title" label={s.label} title={s.title} text={s.text} />
         <div
-          className="no-scrollbar -mx-[clamp(1.25rem,4vw,3.5rem)] mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[clamp(1.25rem,4vw,3.5rem)] py-3 [scroll-padding-inline:clamp(1.25rem,4vw,3.5rem)] lg:mx-0 lg:overflow-visible lg:px-0"
+          className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto py-3 lg:overflow-visible"
           role="region"
           aria-label="Coaching services"
           tabIndex={0}

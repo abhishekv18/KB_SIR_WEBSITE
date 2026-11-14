@@ -1,34 +1,31 @@
 /**
- * Coaching methodology — DEMO.
- * The current site's "Make a decision / Schedule a meeting / Show commitment / Transformation completed"
- * is template text. These four steps are placeholders for Kunal's real process.
+ * Methodology details. The step TITLES come from the homepage (original site's "Simple Steps to Success").
+ * Everything here is DRAFT (status: 'demo'): what happens in each step and what the owner leaves with.
+ * Plain descriptions only; no durations, prices or promised results. Kunal to confirm.
+ * Order matches home.methodIntro.steps.
  */
 export const method = {
   status: 'demo',
   steps: [
     {
-      title: 'Understand your business',
-      text: 'We start with an honest look at where the business is today: numbers, people, pressure points and what you want it to become.',
+      focus: 'Clarity',
+      happens: ['Name what is not working today', 'Decide what you want to be different', 'Commit to taking the first step'],
       gives: 'A clear picture of the starting point',
-      image: 'G02',
     },
     {
-      title: 'Build the plan',
-      text: 'Together we choose the few priorities that matter most and turn them into a simple plan with owners and dates.',
-      gives: 'A one-page plan you can act on',
-      image: 'G04',
+      focus: 'Conversation',
+      happens: ['An honest look at where the business is', 'What is in the way, and what matters most', 'Which coaching format fits how you work'],
+      gives: 'A shared view of the priorities',
     },
     {
-      title: 'Act with accountability',
-      text: 'You put the plan to work. Regular sessions keep momentum, remove blockers and make sure the important work gets done.',
-      gives: 'Momentum and follow-through',
-      image: 'G03',
+      focus: 'Momentum',
+      happens: ['A short plan with clear priorities', 'A regular rhythm of sessions', 'Accountability for the work in between'],
+      gives: 'Follow-through, not just good intentions',
     },
     {
-      title: 'Review and grow',
-      text: 'We look at what changed, what didn’t and why, then set the next round of priorities so progress compounds.',
-      gives: 'Measured progress and the next steps',
-      image: 'G05',
+      focus: 'Progress',
+      happens: ['Review what has changed and why', 'Keep the habits that are working', 'Set the next round of priorities'],
+      gives: 'A business that depends less on you',
     },
   ],
 }

@@ -1,115 +1,38 @@
-import { useRef, useState } from 'react'
-import { Navigate, useParams } from 'react-router'
-import { Check, ShieldCheck, MapPin, Users } from 'lucide-react'
+import { useRef } from 'react'
+import { Link, Navigate, useParams } from 'react-router'
+import { ArrowUpRight, Check, Compass, Layers, Target } from 'lucide-react'
 import Seo from '../components/Seo'
-import PageHero from '../components/PageHero'
 import Img from '../components/Img'
-import FAQ from '../components/FAQ'
 import CTABanner from '../components/CTABanner'
-import CardRow from '../components/CardRow'
-import ServiceCard from '../components/ServiceCard'
-import { DemoTag, Pill, SectionHeading } from '../components/ui'
-import { getService, services, serviceFaq } from '../content/services'
+import { Breadcrumbs, DemoTag, IconCircle, Pill } from '../components/ui'
+import { getService, services } from '../content/services'
 import { site } from '../content/site'
 import { useScrollReveals } from '../animations/useScrollReveals'
+import { usePageIntro } from '../animations/usePageIntro'
 
-/** Signature block that differs per service, so detail pages aren't duplicates. */
-function Signature({ s }) {
-  if (s.layout === 'portrait') {
-    return (
-      <section className="section" aria-labelledby="month-title">
-        <div className="shell">
-          <SectionHeading id="month-title" label="A typical month" title="What working *one-to-one* looks like" text="Demo rhythm — confirm the real session schedule." />
-          <ol className="mt-12 grid gap-4 md:grid-cols-4" data-stagger>
-            {s.month.map((m, i) => {
-              const [w, t] = m.split(' — ')
-              return (
-                <li key={m} className={`rounded-[var(--radius-card)] p-6 ${i % 2 === 0 ? 'bg-navy text-ivory' : 'border border-line bg-white'}`}>
-                  <p className={`text-sm ${i % 2 === 0 ? 'text-gold' : 'text-gold-ink'}`}>{w}</p>
-                  <p className="mt-10 font-display text-[1.7rem] leading-tight">{t}</p>
-                </li>
-              )
-            })}
-          </ol>
-        </div>
-      </section>
-    )
-  }
-  if (s.layout === 'place') {
-    return (
-      <section className="section" aria-labelledby="day-title">
-        <div className="shell grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-5">
-            <div className="overflow-hidden rounded-[16px]" data-reveal="clip"><Img id={s.sideImage} ratio="4 / 5" position="60% 30%" sizes="(min-width:1024px) 40vw, 100vw" /></div>
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7">
-            <p className="label" data-reveal="up">Where we meet</p>
-            <h2 id="day-title" className="display-md mt-4" data-split>A working day, <em>in the room</em></h2>
-            <p className="body-muted mt-4 flex items-center gap-2" data-reveal="up"><MapPin size={16} className="text-gold-ink" aria-hidden /> Demo — location and travel arrangements to be confirmed.</p>
-            <ol className="relative mt-10 space-y-8 border-l border-gold/50 pl-8" data-stagger>
-              {s.day.map((d) => {
-                const [when, what] = d.split(' — ')
-                return (
-                  <li key={d} className="relative">
-                    <span className="absolute -left-[2.3rem] top-1.5 h-3 w-3 rounded-full border-2 border-gold bg-ivory" aria-hidden />
-                    <p className="text-sm font-medium text-gold-ink">{when}</p>
-                    <p className="mt-1 font-display text-[1.6rem] leading-tight">{what}</p>
-                  </li>
-                )
-              })}
-            </ol>
-          </div>
-        </div>
-      </section>
-    )
-  }
-  if (s.layout === 'group') {
-    return (
-      <section className="section overflow-hidden" aria-labelledby="cohort-title">
-        <div className="shell">
-          <SectionHeading id="cohort-title" label="The programme" title="An eight-week *cohort*" text="Demo structure — replace with the real programme." />
-        </div>
-        <div className="mt-12">
-          <CardRow label="programme stages">
-            {s.weeks.map((w, i) => {
-              const [when, theme] = w.split(' · ')
-              return (
-                <div key={w} data-card className="w-[78vw] max-w-[20rem] shrink-0 snap-start rounded-[var(--radius-card)] border border-line bg-white p-6 sm:w-[19rem]">
-                  <div className="flex items-center gap-3"><span className="font-display text-xl text-gold-ink">{String(i + 1).padStart(2, '0')}</span><span className="h-px flex-1 bg-gold/40" aria-hidden /></div>
-                  <p className="mt-8 text-sm text-ink-muted">{when}</p>
-                  <p className="mt-1 font-display text-[2.2rem] leading-none">{theme}</p>
-                </div>
-              )
-            })}
-          </CardRow>
-        </div>
-        <div className="shell mt-12">
-          <p className="label" data-reveal="up">Who’s in the room</p>
-          <ul className="mt-6 flex flex-wrap gap-3" data-stagger>
-            {['Founders', 'Owner-managers', 'Family businesses', 'Service firms', 'Retail & hospitality', 'Demo — confirm'].map((c) => (
-              <li key={c} className="flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2.5 text-[0.9375rem]"><Users size={15} className="text-gold-ink" aria-hidden />{c}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    )
-  }
-  // boardroom
+/*
+ * Service detail page. Same vocabulary as the homepage, About and Services: light hero with the
+ * gold-framed photograph, labels and display headings, white icon cards, a gold step line, photo
+ * tiles and the closing banner. Only homepage photographs. Unconfirmed facts read "To be confirmed".
+ */
+
+const PROBLEM_ICONS = [Target, Compass, Layers]
+const TINTS = ['bg-cream', 'bg-mist', 'bg-sage', 'bg-ivory-deep'] // the homepage service-card tints
+
+function Framed({ id, flip = false, priority = false, caption }) {
   return (
-    <section className="on-dark section bg-navy text-white" aria-labelledby="outcomes-title">
-      <div className="shell">
-        <SectionHeading id="outcomes-title" label="Leadership outcomes" title="What leaders *work towards*" text="Demo outcomes — goals are agreed with each leader at the start." />
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-[var(--radius-card)] bg-white/10 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
-          {s.outcomes.map((o, i) => (
-            <li key={o} className="bg-navy p-8">
-              <span className="font-display text-xl text-gold">{String(i + 1).padStart(2, '0')}</span>
-              <p className="mt-12 font-display text-[1.9rem] leading-tight">{o}</p>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-10 flex max-w-2xl items-start gap-3 text-white/72" data-reveal="up"><ShieldCheck size={20} className="mt-0.5 shrink-0 text-gold" aria-hidden />Demo — confidentiality statement. Explain how conversations with leaders are kept private.</p>
+    <div className="relative">
+      <span aria-hidden className={`absolute -top-3 bottom-10 hidden rounded-[28px] border border-gold/45 sm:block ${flip ? '-left-3 right-10' : '-right-3 left-10'}`} />
+      <div className="relative overflow-hidden rounded-[24px] shadow-[0_44px_80px_-50px_rgb(21_28_38/.75)]" data-intro-media={priority || undefined} data-reveal={priority ? undefined : 'clip'}>
+        <Img id={id} ratio="auto" priority={priority} className="aspect-[4/3.3]" sizes="(min-width:1024px) 29rem, 92vw" />
+        {caption && (
+          <>
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgb(21_28_38/.6),transparent_40%)]" />
+            <p className="absolute bottom-4 left-5 flex items-center gap-2 text-[0.75rem] font-medium text-white/90"><span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />{caption}</p>
+          </>
+        )}
       </div>
-    </section>
+    </div>
   )
 }
 
@@ -118,104 +41,152 @@ export default function ServiceDetail() {
   const s = getService(slug)
   const ref = useRef(null)
   useScrollReveals(ref, [slug])
-  const [active, setActive] = useState(0)
+  usePageIntro(ref, [slug])
   if (!s) return <Navigate to="/services" replace />
-  const related = services.filter((x) => x.slug !== s.slug)
-  const crumbs = [{ label: 'Home', to: '/' }, { label: 'Services', to: '/services' }, { label: s.title }]
 
-  const factsCard = (
-    <div className="rounded-[var(--radius-card)] bg-ivory p-6 text-navy">
-      <DemoTag>Demo details</DemoTag>
-      <dl className="mt-4 divide-y divide-line">
-        {s.facts.map((f) => <div key={f.label} className="flex justify-between gap-6 py-3 text-[0.9375rem]"><dt className="text-ink-muted">{f.label}</dt><dd className="text-right font-medium">{f.value}</dd></div>)}
-      </dl>
-    </div>
-  )
+  const index = services.indexOf(s)
+  const flip = index % 2 === 1
+  const others = services.filter((o) => o.slug !== s.slug)
+  const draft = s.status === 'demo'
 
   return (
     <div ref={ref} key={slug}>
-      <Seo title={s.title} description={`${s.title} with Kunal Bhardwaj. ${s.short}`} path={`/services/${s.slug}`} />
-      {s.layout === 'portrait' ? (
-        <PageHero variant="split" image={s.heroImage} crumbs={crumbs} title={s.title} text={s.summary}
-          floating={<><p className="font-display text-xl">{s.pill}</p><p className="mt-1 text-sm text-ink-muted">{s.short}</p></>}>
-          <Pill to={site.cta.to} variant="gold">{site.cta.label}</Pill>
-        </PageHero>
-      ) : (
-        <PageHero variant="photo" image={s.heroImage} crumbs={crumbs} title={s.title} text={s.summary} aside={s.layout === 'boardroom' ? null : factsCard}>
-          <Pill to={site.cta.to} variant="gold">{site.cta.label}</Pill>
-        </PageHero>
-      )}
+      <Seo title={s.title} description={s.short} path={`/services/${s.slug}`} noindex={draft} />
 
-      {/* Overview: who it's for + problems */}
-      <section className="section" aria-labelledby="overview-title">
-        <div className="shell grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <div className="flex flex-wrap items-center gap-3"><p className="label" data-reveal="up">Overview</p><DemoTag>Demo copy</DemoTag></div>
-            <h2 id="overview-title" className="display-lg mt-4" data-split>Is this <em>right for you?</em></h2>
-            {(s.layout === 'portrait' || s.layout === 'boardroom') && <div className="mt-10" data-reveal="up">{factsCard}</div>}
+      {/* 1 · hero */}
+      <section className="relative overflow-hidden bg-[#FAF7F1] pb-12 pt-24 sm:pt-28 lg:pb-14 lg:pt-28" aria-labelledby="svc-title">
+        <div aria-hidden className={`pointer-events-none absolute -top-24 h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(closest-side,rgb(210_171_116/.15),transparent)] ${flip ? '-left-48' : '-right-48'}`} />
+        <div className="shell relative grid gap-8 max-lg:[&>*:last-child]:order-first sm:gap-10 lg:grid-cols-12 lg:items-center lg:gap-10">
+          <div className={`lg:col-span-6 ${flip ? 'lg:order-2 lg:pl-8' : 'lg:pr-4'}`}>
+            <div data-intro className="max-lg:hidden"><Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Services', to: '/services' }, { label: s.title }]} dark={false} /></div>
+            <p className="hero-eyebrow lg:mt-6" data-intro>
+              <span className="h-[2px] w-8 bg-gold" aria-hidden />{s.pill}
+            </p>
+            <h1 id="svc-title" className="mt-4 hero-title">{s.title}</h1>
+            <p className="lede mt-4 max-w-[46ch]" data-intro>{s.intro || s.short}</p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4" data-intro>
+              <Pill size="sm" to={site.cta.to} variant="navy">{site.cta.label}</Pill>
+              <Link to="/services" className="link-line inline-block py-2 text-[0.9rem] font-medium">All services</Link>
+            </div>
+            <dl className="mt-7 grid max-w-[30rem] grid-cols-2 gap-y-4 border-t border-navy/12 pt-4" data-intro>
+              {s.facts.map((f, i) => (
+                <div key={f.label} className={`pr-3 ${i % 2 ? 'border-l border-navy/12 pl-5' : ''}`}>
+                  <dt className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-ink-muted">{f.label}</dt>
+                  <dd className={`mt-1.5 text-[0.9rem] font-semibold ${f.value ? 'text-navy' : 'text-navy/35'}`}>{f.value || 'To be confirmed'}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
-            <div className="rounded-[var(--radius-card)] border border-line bg-white p-7" data-reveal="up">
-              <h3 className="font-display text-[1.7rem]">Who it’s for</h3>
-              <ul className="mt-5 space-y-3">{s.whoFor.map((w) => <li key={w} className="flex gap-3 text-[0.98rem]"><Check size={17} className="mt-1 shrink-0 text-gold-ink" aria-hidden />{w}</li>)}</ul>
-            </div>
-            <div className="on-dark rounded-[var(--radius-card)] bg-navy p-7 text-white" data-reveal="up" data-delay="0.1">
-              <h3 className="font-display text-[1.7rem]">Problems it solves</h3>
-              <ul className="mt-5 space-y-3">{s.problems.map((p) => <li key={p} className="flex gap-3 text-[0.98rem] text-white/80"><span className="mt-2.5 h-px w-3 shrink-0 bg-gold" aria-hidden />{p}</li>)}</ul>
-            </div>
+          <div className={`lg:col-span-6 ${flip ? 'lg:order-1' : ''}`}>
+            <div className={`mx-auto max-w-[29rem] ${flip ? 'lg:ml-0 lg:mr-auto' : 'lg:ml-auto lg:mr-0'}`}><Framed id={s.heroImage} flip={flip} priority caption={s.format} /></div>
           </div>
         </div>
       </section>
 
-      <Signature s={s} />
-
-      {/* Deliverables + approach */}
-      <section className="wash section" aria-labelledby="deliver-title">
-        <div className="shell grid gap-12 lg:grid-cols-12 lg:items-start">
-          <div className="lg:col-span-6">
-            <p className="label" data-reveal="up">Benefits & deliverables</p>
-            <h2 id="deliver-title" className="display-md mt-4" data-split>What’s <em>included</em></h2>
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2" data-stagger>
-              {s.deliverables.map((d) => (
-                <li key={d} className="rounded-[var(--radius-card)] border border-line bg-white p-5"><span className="grid h-9 w-9 place-items-center rounded-full bg-ivory-deep text-gold-ink" aria-hidden><Check size={16} /></span><p className="mt-4 font-medium leading-snug">{d}</p></li>
+      {/* 2 · overview */}
+      <section className="section" aria-labelledby="overview-title">
+        <div className="shell grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
+          <div className={`lg:col-span-6 ${flip ? 'lg:pr-6' : 'lg:order-2 lg:pl-6'}`}>
+            <div className="flex flex-wrap items-center gap-3"><p className="label" data-reveal="up">Overview</p>{draft && <DemoTag>Draft copy</DemoTag>}</div>
+            <h2 id="overview-title" className="display-lg mt-4" data-split>What <em>{s.title.toLowerCase()}</em> looks like</h2>
+            <p className="body-copy mt-4 max-w-[50ch]" data-reveal="up">{s.summary}</p>
+            <p className="mt-7 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-navy/55" data-reveal="up">It suits</p>
+            <ul className="mt-3 space-y-2.5" data-stagger>
+              {s.whoFor.map((w) => (
+                <li key={w} className="flex items-start gap-3 text-[0.92rem]">
+                  <span className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full text-gold-ink ${TINTS[index % TINTS.length]}`} aria-hidden><Check size={12} strokeWidth={2.2} /></span>{w}
+                </li>
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-5 lg:col-start-8">
-            <p className="label" data-reveal="up">Coaching approach</p>
-            <ol className="relative mt-8 space-y-8 pl-10" data-stagger>
-              <span className="absolute bottom-2 left-[0.7rem] top-2 w-px bg-gold/50" aria-hidden />
-              {s.approach.map((a, i) => (
-                <li key={a} className="relative">
-                  <span className="absolute -left-10 grid h-6 w-6 place-items-center rounded-full bg-navy text-[0.7rem] text-gold" aria-hidden>{i + 1}</span>
-                  <p className="font-display text-[1.65rem] leading-tight">{a}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="mt-10 grid grid-cols-2 gap-4">
-              {s.detailImages.map((id, i) => <div key={id + i} className={`overflow-hidden rounded-[var(--radius-img)] ${i ? 'mt-10' : ''}`} data-reveal="clip" data-delay={i * 0.15}><Img id={id} ratio="4 / 5" sizes="20vw" /></div>)}
-            </div>
+          <div className={`lg:col-span-6 ${flip ? '' : 'lg:order-1'}`}>
+            <div className={`mx-auto max-w-[27rem] ${flip ? 'lg:ml-auto lg:mr-0' : 'lg:mr-auto lg:ml-0'}`}><Framed id={s.sideImage} flip={!flip} /></div>
           </div>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="sfaq-title">
-        <div className="shell grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4"><p className="label" data-reveal="up">Questions</p><h2 id="sfaq-title" className="display-md mt-4" data-split>Before you <em>decide</em></h2></div>
-          <div className="lg:col-span-7 lg:col-start-6"><FAQ items={serviceFaq} /></div>
+      {/* 3 · what we often work on: the homepage's white icon cards on the service's own tint */}
+      <section className={`section ${TINTS[index % TINTS.length]}`} aria-labelledby="work-title">
+        <div className="shell">
+          <div className="grid gap-5 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <div className="flex flex-wrap items-center gap-3"><p className="label" data-reveal="up">Where it helps</p>{draft && <DemoTag>Draft</DemoTag>}</div>
+              <h2 id="work-title" className="display-lg mt-4" data-split>What we often <em>work on</em></h2>
+            </div>
+            <p className="lede lg:col-span-4 lg:col-start-9 lg:pb-1.5" data-reveal="up">The things that bring most owners to this format.</p>
+          </div>
+          <ul className="mt-7 grid gap-3 sm:grid-cols-3 sm:gap-4" data-stagger>
+            {s.problems.map((p, i) => {
+              const Icon = PROBLEM_ICONS[i % PROBLEM_ICONS.length]
+              return (
+                <li key={p} className="group relative overflow-hidden rounded-[14px] bg-white p-5 shadow-[0_18px_36px_-30px_rgb(36_48_63/.45)] ring-1 ring-line transition-transform duration-700 ease-[var(--ease-out-expo)] sm:p-6 [@media(hover:hover)]:hover:-translate-y-1">
+                  <span aria-hidden className="absolute inset-x-5 top-0 h-[2px] origin-left scale-x-0 bg-gold transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-x-100 sm:inset-x-6" />
+                  <div className="flex items-start justify-between">
+                    <IconCircle Icon={Icon} size="sm" />
+                    <span className="text-[0.74rem] font-semibold tabular-nums tracking-[0.12em] text-gold-ink/70">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                  <p className="mt-4 card-title">{p}</p>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </section>
 
-      <section className="section overflow-hidden pt-0" aria-labelledby="related-title">
-        <div className="shell"><SectionHeading id="related-title" label="Related" title="Other ways to *work together*" /></div>
-        <div className="mt-12">
-          <CardRow label="related services">
-            {related.map((r, i) => <ServiceCard key={r.slug} service={r} active={i === active} onActivate={() => setActive(i)} />)}
-          </CardRow>
+      {/* 4 · how it works: steps on a gold line beside a photograph */}
+      <section className="section" aria-labelledby="how-title">
+        <div className="shell grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
+          <div className={`lg:col-span-6 ${flip ? 'lg:order-2 lg:pl-6' : 'lg:pr-6'}`}>
+            <div className="flex flex-wrap items-center gap-3"><p className="label" data-reveal="up">How it works</p>{draft && <DemoTag>Draft</DemoTag>}</div>
+            <h2 id="how-title" className="display-lg mt-4" data-split>Three steps, <em>kept simple</em></h2>
+            <ol className="mt-8 space-y-6 border-l border-gold/50 pl-8" data-stagger>
+              {s.approach.map((a, i) => (
+                <li key={a.title} className="relative">
+                  <span className="absolute -left-[2.85rem] grid h-7 w-7 place-items-center rounded-full bg-navy text-[0.7rem] font-semibold tabular-nums text-gold" aria-hidden>{i + 1}</span>
+                  <p className="card-title">{a.title}</p>
+                  <p className="card-text mt-1 max-w-[44ch]">{a.text}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-8" data-reveal="up"><Pill to={site.cta.to} variant="navy" size="sm">Start with a conversation</Pill></div>
+          </div>
+          <div className={`lg:col-span-6 ${flip ? 'lg:order-1' : ''}`}>
+            <div className={`mx-auto max-w-[27rem] ${flip ? 'lg:mr-auto lg:ml-0' : 'lg:ml-auto lg:mr-0'}`}><Framed id={s.detailImages[0]} flip={flip} /></div>
+          </div>
         </div>
       </section>
 
-      <CTABanner title={`Start with a *conversation*`} text={`Talk to Kunal about ${s.title.toLowerCase()} and whether it suits your business.`} image={s.cardImage} />
+      {/* 5 · other formats */}
+      <section className="section pt-0" aria-labelledby="others-title">
+        <div className="shell">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="label" data-reveal="up">Other formats</p>
+              <h2 id="others-title" className="display-lg mt-4" data-split>Other ways to <em>work together</em></h2>
+            </div>
+            <Link to="/services" className="link-line self-start py-2 text-[0.9rem] font-medium sm:self-auto" data-reveal="up">See all services</Link>
+          </div>
+          <ul className="mt-7 grid gap-3 sm:grid-cols-3 sm:gap-4" data-stagger>
+            {others.map((o) => (
+              <li key={o.slug}>
+                <Link to={`/services/${o.slug}`} className="group relative block overflow-hidden rounded-[16px]">
+                  <Img id={o.cardImage} ratio="auto" className="aspect-[16/11] sm:aspect-[4/4.4]" imgClassName="transition-transform duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-[1.06]" sizes="(min-width:640px) 24rem, 100vw" />
+                  <div aria-hidden className="absolute inset-0 bg-[linear-gradient(0deg,rgb(21_28_38/.88)_0%,rgb(21_28_38/.2)_48%,transparent_70%)]" />
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4 text-white">
+                    <div>
+                      <p className="text-[0.68rem] font-medium text-white/70">{o.pill}</p>
+                      <p className="mt-0.5 card-title">{o.title}</p>
+                    </div>
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/90 text-navy transition-transform duration-500 group-hover:-rotate-45" aria-hidden><ArrowUpRight size={15} strokeWidth={1.8} /></span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <CTABanner title={`Talk about *${s.title.toLowerCase()}*`} text="Tell me where your business is today and we’ll see whether this format is the right fit." image="R13" />
     </div>
   )
 }

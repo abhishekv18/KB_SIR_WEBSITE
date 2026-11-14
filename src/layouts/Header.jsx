@@ -6,7 +6,7 @@ import { site } from '../content/site'
 import { Pill, SocialIcon } from '../components/ui'
 import { lockScroll } from './smoothScroll'
 
-const LIGHT_HERO = [/^\/insights/, /^\/success-stories\/?$/, /^\/privacy/, /^\/terms/]
+const LIGHT_HERO = [/^\/insights/, /^\/privacy/, /^\/terms/, /^\/services/, /^\/about/, /^\/methodology/]
 export const isLightHero = (path) => LIGHT_HERO.some((r) => r.test(path))
 
 const spring = { type: 'spring', stiffness: 420, damping: 36, mass: 0.7 }
@@ -20,7 +20,7 @@ const spring = { type: 'spring', stiffness: 420, damping: 36, mass: 0.7 }
 export default function Header() {
   const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
-  const [hidden, setHidden] = useState(false)
+  const hidden = false // header no longer hides on scroll
   const [open, setOpen] = useState(false)
   const [hover, setHover] = useState(null)
   const last = useRef(0)
@@ -31,8 +31,7 @@ export default function Header() {
     const onScroll = () => {
       const y = window.scrollY
       setScrolled(y > 40)
-      setHidden(y > 320 && y > last.current + 4)
-      if (y < last.current - 4 || y < 320) setHidden(false)
+      // the bar stays in place while scrolling (owner request); it only hides behind the open menu
       last.current = y
     }
     onScroll()

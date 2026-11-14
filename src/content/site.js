@@ -17,17 +17,16 @@ export const site = {
     { id: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/channel/UCnYh33veGusUmJWAa74lldg' }, // verified
   ],
   nav: [
+    { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
-    { label: 'Success Stories', to: '/success-stories' },
     { label: 'Insights', to: '/insights' },
   ],
   footerNav: [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
-    { label: 'Methodology', to: '/methodology' },
-    { label: 'Success Stories', to: '/success-stories' },
+    { label: 'How it works', to: '/methodology' },
     { label: 'Insights', to: '/insights' },
     { label: 'Contact', to: '/contact' },
   ],
@@ -102,6 +101,8 @@ export const home = {
     label: 'Coaching services',
     title: 'Coaching shaped around *your business*',
     text: 'One-to-one, face-to-face, in a group or at leadership level. Choose the format that fits how you work.',
+    // longer line for the Services page hero (draft)
+    heroText: 'One-to-one, face-to-face, in a group or at leadership level. Choose the format that fits how you work, and every session stays focused on your business.',
   },
   methodIntro: {
     label: 'How it works',

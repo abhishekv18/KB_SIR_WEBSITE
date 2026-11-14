@@ -1,48 +1,42 @@
 /**
- * About page — DEMO content (structure only). Replace with Kunal's real biography,
- * expertise, philosophy and dated milestones. No qualifications or achievements are claimed.
+ * About page.
+ * VERIFIED: role, the Minding Business name, and the positioning line from the old site
+ * ("I help individuals to become their best version").
+ * DRAFT (status: 'demo'): hero line, audiences, principles and the personal note. They describe the
+ * coaching formats in plain terms only, with no qualifications, years, employers, results or numbers.
+ * NEEDED FROM KUNAL: biography (bio), and his own wording for the note.
  */
 export const about = {
   status: 'demo',
-  hero: { title: 'The person behind *Minding Business*', text: 'Business coach and consultant.' },
-  intro: 'Demo introduction — one or two sentences in Kunal’s own voice about why he does this work and who he does it for.',
-  bio: [
-    'Demo biography paragraph. Describe Kunal’s background: where he started, the businesses he has worked in or built, and what led him to coaching.',
-    'Demo biography paragraph. Describe the kind of clients he works with today, the problems he helps them solve, and how his experience shapes his approach.',
-    'Demo biography paragraph. Close with what clients can expect from working with him.',
-  ],
-  expertise: [
-    { id: 'strategy', title: 'Strategy', text: 'Demo — turning ambition into a small number of clear priorities.', image: 'G15' },
-    { id: 'leadership', title: 'Leadership', text: 'Demo — helping owners lead people instead of doing every job themselves.', image: 'G16' },
-    { id: 'operations', title: 'Operations', text: 'Demo — building simple systems so the business runs without constant intervention.', image: 'G17' },
-    { id: 'brand', title: 'Brand', text: 'Demo — shaping how customers see and remember the business.', image: 'G18' },
-  ],
-  philosophy: {
-    quote: 'Demo philosophy line — the one sentence Kunal wants every client to remember.',
-    principles: [
-      { title: 'Clarity before effort', text: 'Demo principle — explain in one line.' },
-      { title: 'Small steps, kept', text: 'Demo principle — explain in one line.' },
-      { title: 'Honest conversations', text: 'Demo principle — explain in one line.' },
-    ],
+  hero: {
+    title: 'The person behind *Minding Business*',
+    text: 'I work with business owners who want a clearer way to run and grow their business, and the space to think before they act.',
   },
-  journey: [
-    { year: 'Year', title: 'Demo milestone', text: 'A dated milestone from Kunal’s career will appear here.', image: 'G20' },
-    { year: 'Year', title: 'Demo milestone', text: 'Each milestone has a short description and an image.', image: 'G21' },
-    { year: 'Year', title: 'Demo milestone', text: 'Only real, owner-supplied milestones will be published.', image: 'G22' },
-    { year: 'Today', title: 'Minding Business', text: 'Business coaching and consulting for owners.', image: 'G23' },
+  positioning: 'I help individuals to become their *best version.*', // verified (old site)
+  bio: null, // NEEDED: 2 to 4 short paragraphs in Kunal's own words
+  audiences: [
+    { icon: 'briefcase', title: 'Founders', text: 'Building something of their own and carrying most of the decisions.' },
+    { icon: 'layers', title: 'Owner-managers', text: 'Running a business that still depends on them for almost everything.' },
+    { icon: 'users', title: 'Growing teams', text: 'Moving from a few people doing everything to a team that can lead itself.' },
+    { icon: 'target', title: 'Senior leaders', text: 'Leading people and results through change or growth.' },
+  ],
+  principles: [
+    { title: 'Clarity before effort', text: 'Decide what matters first, so the work that follows counts.' },
+    { title: 'Small steps, kept', text: 'Progress comes from actions you actually take, reviewed regularly.' },
+    { title: 'Honest conversations', text: 'Straight questions and straight answers, in confidence.' },
+  ],
+  note: [
+    'Most owners I meet are not short of effort. They are short of time to step back, look at the whole business and decide what deserves their attention next.',
+    'That is the space coaching gives you. We look honestly at where things stand, choose a few priorities and keep them moving, session by session.',
   ],
 }
 
+/** Contact page. DRAFT: the "what happens next" steps describe the form, not a promised timeline. */
 export const contactPage = {
   status: 'demo',
   steps: [
-    { title: 'Send your message', text: 'Tell me a little about your business and what you’d like to change.' },
-    { title: 'I’ll reply by email', text: 'Demo — confirm your actual response process and timing here.' },
-    { title: 'We arrange a conversation', text: 'Demo — describe the first call: length, format and what it covers.' },
-  ],
-  faq: [
-    { q: 'What happens in the first conversation?', a: 'Demo answer — describe the first conversation.' },
-    { q: 'Do you work with businesses outside my city?', a: 'Demo answer — confirm online and in-person availability.' },
-    { q: 'Is everything we discuss confidential?', a: 'Demo answer — confirm the confidentiality terms.' },
+    { title: 'Send a short note', text: 'Tell me where your business is today and what you would like to change.' },
+    { title: 'I reply by email', text: 'With a few questions, or a suggested time to talk.' },
+    { title: 'We talk it through', text: 'An honest conversation about what is in the way and where to start.' },
   ],
 }

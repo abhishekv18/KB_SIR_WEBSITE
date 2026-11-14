@@ -80,6 +80,8 @@ export const images = {
   G42: { status: 'stock', src: `${S}/blog-time-to-think`, widths: [640, 1024, 1600], w: 1600, h: 1067, label: 'Hourglass with falling sand', alt: 'An hourglass with sand falling, against a soft blurred background' },
   G43: { status: 'stock', src: `${S}/blog-hard-conversation`, widths: [640, 1024, 1600], w: 1600, h: 1067, label: 'Quiet meeting room set for a conversation', alt: 'A quiet, warmly lit meeting room with a wooden table and chairs' },
   G44: { status: 'stock', src: `${S}/blog-know-your-numbers`, widths: [640, 1024, 1600], w: 1600, h: 1067, label: 'Reviewing figures with a calculator', alt: 'Hands reviewing printed figures beside a calculator and laptop' },
+  // Insights hero. Unsplash License, photo by Amiel Gross: unsplash.com/photos/bOfROsjzrNs
+  G47: { status: 'stock', src: `${S}/insights-writing`, widths: [640, 1024, 1600], w: 1600, h: 1067, pos: '60% 50%', label: 'Writing at a desk', alt: 'A person in a dark suit writing in a leather notebook at a wooden desk' },
   G45: { status: 'pending', label: 'Still life — seedling in a brass pot', w: 16, h: 9 },
   G46: { status: 'pending', label: 'Phone calendar beside a notebook', w: 4, h: 5 },
 }

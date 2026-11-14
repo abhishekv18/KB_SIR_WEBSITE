@@ -1,16 +1,10 @@
+import { draftBodies } from './draftPosts'
+
 /**
  * Insights / blog posts.
  * "Business vs. Brand" is VERIFIED — Kunal's real article (22 Aug 2024), lightly formatted.
- * All other posts are DEMO titles and excerpts to show the layout; their bodies say so.
+ * All other posts are DRAFT samples (status: 'demo', development only); their bodies live in draftPosts.js.
  */
-const demoBody = (topic) => [
-  { type: 'p', text: `Demo article. This is a sample post about ${topic}, included so the article layout, reading width and typography can be reviewed. It will be replaced by Kunal’s own writing.` },
-  { type: 'h2', text: 'A sample section heading' },
-  { type: 'p', text: 'Body copy is set at a comfortable reading width with generous line height. Paragraphs, headings, lists and pull quotes all have their own treatment so long articles stay easy to read.' },
-  { type: 'ul', items: ['A sample list item', 'Another sample point', 'A third point to show spacing'] },
-  { type: 'quote', text: 'A pull quote highlights one idea from the article.' },
-  { type: 'p', text: 'Replace this demo post, or remove it, before the site goes live.' },
-]
 
 export const posts = [
   {
@@ -39,11 +33,11 @@ export const posts = [
       { type: 'p', text: 'By focusing on these elements, you can transform a business into a strong, recognisable brand that stands the test of time.' },
     ],
   },
-  { slug: 'demo-five-decisions', status: 'demo', title: 'Five decisions every owner should stop making alone', excerpt: 'Some decisions only feel like yours to make. Here is how to spot the ones your team should own, and how to hand them over without losing control.', category: 'Leadership', date: '2026-10-28', readingTime: 6, image: 'G11', body: demoBody('decision-making') },
-  { slug: 'demo-one-page-plan', status: 'demo', title: 'Why a one-page plan beats a fifty-page strategy', excerpt: 'Long strategy documents rarely survive the first busy week. A single page of priorities, owners and dates usually does.', category: 'Strategy', date: '2026-10-10', readingTime: 5, image: 'G12', body: demoBody('planning') },
-  { slug: 'demo-time-for-thinking', status: 'demo', title: 'Making time to think when the business never stops', excerpt: 'If every hour goes to running the business, no hour goes to steering it. Simple ways to protect time for real thinking.', category: 'Productivity', date: '2026-09-18', readingTime: 4, image: 'G42', body: demoBody('time management') },
-  { slug: 'demo-hard-conversations', status: 'demo', title: 'The conversation you keep postponing', excerpt: 'The talk you keep delaying is usually the one that would change the most. How to prepare for it and start it well.', category: 'Leadership', date: '2026-08-30', readingTime: 7, image: 'G43', body: demoBody('difficult conversations') },
-  { slug: 'demo-know-your-numbers', status: 'demo', title: 'Know your numbers without becoming an accountant', excerpt: 'You do not need to be an accountant to run a healthy business. You just need to watch the few figures that tell you the truth.', category: 'Strategy', date: '2026-08-12', readingTime: 5, image: 'G44', body: demoBody('business numbers') },
+  { slug: 'demo-five-decisions', status: 'demo', title: 'Five decisions every owner should stop making alone', excerpt: 'Some decisions only feel like yours to make. Here is how to spot the ones your team should own, and how to hand them over without losing control.', category: 'Leadership', date: '2026-10-28', readingTime: 4, image: 'G11', body: draftBodies['demo-five-decisions'] },
+  { slug: 'demo-one-page-plan', status: 'demo', title: 'Why a one-page plan beats a fifty-page strategy', excerpt: 'Long strategy documents rarely survive the first busy week. A single page of priorities, owners and dates usually does.', category: 'Strategy', date: '2026-10-10', readingTime: 4, image: 'G12', body: draftBodies['demo-one-page-plan'] },
+  { slug: 'demo-time-for-thinking', status: 'demo', title: 'Making time to think when the business never stops', excerpt: 'If every hour goes to running the business, no hour goes to steering it. Simple ways to protect time for real thinking.', category: 'Productivity', date: '2026-09-18', readingTime: 3, image: 'G42', body: draftBodies['demo-time-for-thinking'] },
+  { slug: 'demo-hard-conversations', status: 'demo', title: 'The conversation you keep postponing', excerpt: 'The talk you keep delaying is usually the one that would change the most. How to prepare for it and start it well.', category: 'Leadership', date: '2026-08-30', readingTime: 3, image: 'G43', body: draftBodies['demo-hard-conversations'] },
+  { slug: 'demo-know-your-numbers', status: 'demo', title: 'Know your numbers without becoming an accountant', excerpt: 'You do not need to be an accountant to run a healthy business. You just need to watch the few figures that tell you the truth.', category: 'Strategy', date: '2026-08-12', readingTime: 4, image: 'G44', body: draftBodies['demo-know-your-numbers'] },
 ]
 
 export const categories = ['All', ...new Set(posts.map((p) => p.category))]

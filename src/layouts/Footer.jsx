@@ -49,13 +49,13 @@ export default function Footer() {
 
       <div className="shell">
         <div className="mt-6 flex flex-col items-center gap-5 border-t border-line py-7 text-[0.8125rem] text-ink-muted md:flex-row md:justify-between">
-          <p className="flex flex-col items-center gap-1 sm:flex-row sm:gap-5"><span>© {year} Kunal Bhardwaj · {site.tagline}</span><Link to="/privacy" className="link-line inline-block py-1.5">Privacy policy</Link></p>
+          <p className="flex flex-col items-center gap-1 sm:flex-row sm:gap-5"><span>© {year} Kunal Bhardwaj · {site.tagline}</span><span className="inline-block py-1.5">Privacy policy</span></p>
           <div className="flex gap-2.5">
             {site.socials.map((s) => (
               <a key={s.id} href={s.href} target="_blank" rel="noreferrer" aria-label={`${s.label} (opens in a new tab)`} className="grid h-10 w-10 place-items-center rounded-full bg-navy text-ivory transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 hover:bg-gold hover:text-navy"><SocialIcon id={s.id} size={15} /></a>
             ))}
           </div>
-          <p className="flex gap-5"><Link to="/terms" className="link-line inline-block py-1.5">Terms &amp; conditions</Link><span className="py-1.5">All rights reserved</span></p>
+          <p className="flex gap-5"><span className="py-1.5">Terms &amp; conditions</span><span className="py-1.5">All rights reserved</span></p>
         </div>
       </div>
     </footer>

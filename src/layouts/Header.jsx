@@ -138,13 +138,13 @@ export default function Header() {
                 <X size={19} strokeWidth={1.7} />
               </button>
             </div>
-            <nav aria-label="Mobile" className="shell mt-6 flex-1 overflow-y-auto">
+            <nav aria-label="Mobile" className="shell mt-8 flex-1 overflow-y-auto">
               <ul className="divide-y divide-navy/10 border-y border-navy/10">
                 {[...site.nav, { label: 'Contact', to: '/contact' }].map((item, i) => (
                   <motion.li key={item.to} initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.25 + i * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] } }}>
-                    <NavLink to={item.to} end={item.to === '/'} className={({ isActive }) => `flex items-center justify-between py-3.5 font-[family-name:var(--font-nav)] text-[1.9rem] font-medium leading-tight ${isActive ? 'text-gold-ink' : 'text-navy'}`}>
+                    <NavLink to={item.to} end={item.to === '/'} className={({ isActive }) => `group flex items-center justify-between py-4 font-[family-name:var(--font-nav)] text-[1.4rem] font-medium leading-tight tracking-[-0.005em] transition-colors duration-300 ${isActive ? 'text-gold-ink' : 'text-navy hover:text-gold-ink'}`}>
                       {item.label}
-                      <span className="text-sm tracking-normal text-gold-ink/60">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="text-[0.72rem] font-semibold tabular-nums tracking-[0.12em] text-gold-ink/60">{String(i + 1).padStart(2, '0')}</span>
                     </NavLink>
                   </motion.li>
                 ))}

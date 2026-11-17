@@ -116,11 +116,12 @@ function ServicesHero() {
 function ServiceRow({ s, i }) {
   const flip = i % 2 === 1
   return (
-    <article id={s.slug} className="scroll-mt-28">
-      <div className={`grid items-center gap-8 overflow-hidden rounded-[24px] p-3 sm:p-4 md:grid-cols-12 md:gap-8 lg:gap-10 ${TINTS[i % TINTS.length]}`} data-reveal="up">
+    <article id={s.slug} className="scroll-mt-28" data-reveal="up">
+      {/* the whole panel opens the service page (stretched link from the Explore button); the booking link sits above it */}
+      <div className={`group relative grid cursor-pointer items-center gap-8 overflow-hidden rounded-[24px] p-3 ring-1 ring-transparent transition-[transform,box-shadow] duration-700 ease-[var(--ease-out-expo)] sm:p-4 md:grid-cols-12 md:gap-8 lg:gap-10 [@media(hover:hover)]:hover:-translate-y-1 [@media(hover:hover)]:hover:shadow-[0_40px_70px_-45px_rgb(21_28_38/.55)] ${TINTS[i % TINTS.length]}`}>
         <div className={`relative md:col-span-5 ${flip ? 'md:order-2' : ''}`}>
           <div className="overflow-hidden rounded-[16px]">
-            <Img id={s.cardImage} ratio="auto" className="aspect-[16/11] md:aspect-[4/4.2] lg:aspect-[4/3.4]" sizes="(min-width:1024px) 36rem, 100vw" />
+            <Img id={s.cardImage} ratio="auto" className="aspect-[16/11] md:aspect-[4/4.2] lg:aspect-[4/3.4]" imgClassName="transition-transform duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-[1.05]" sizes="(min-width:1024px) 36rem, 100vw" />
           </div>
           <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[0.72rem] font-medium text-navy/80 backdrop-blur-md">{s.pill}</span>
         </div>
@@ -130,7 +131,7 @@ function ServiceRow({ s, i }) {
             <span className="h-px w-8 bg-gold" aria-hidden />
             {s.status === 'demo' && <DemoTag>Draft description</DemoTag>}
           </div>
-          <h2 className="display-md mt-3">{s.title}</h2>
+          <h2 className="display-md mt-3 transition-colors duration-300 group-hover:text-gold-ink">{s.title}</h2>
           <p className="body-copy mt-3 max-w-[46ch]">{s.summary}</p>
           <p className="mt-6 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-navy/55">It suits</p>
           <ul className="mt-3 space-y-2">
@@ -141,8 +142,8 @@ function ServiceRow({ s, i }) {
             ))}
           </ul>
           <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <Pill to={`/services/${s.slug}`} variant="navy" size="sm">Explore {s.title}</Pill>
-            <Link to={site.cta.to} className="link-line py-2 text-[0.88rem] font-medium">Book a consultation</Link>
+            <Pill to={`/services/${s.slug}`} variant="navy" size="sm" className="after:absolute after:inset-0 after:z-0 after:rounded-[24px] after:content-['']">Explore {s.title}</Pill>
+            <Link to={site.cta.to} className="link-line relative z-10 py-2 text-[0.88rem] font-medium">Book a consultation</Link>
           </div>
         </div>
       </div>

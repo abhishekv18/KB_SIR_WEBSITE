@@ -28,11 +28,11 @@ export default function App() {
             <Route index element={<Home />} />
             {showInner && (<>
             <Route path="about" element={<About />} />
-            {/* <Route path="services" element={<Services />} />
-            <Route path="services/:slug" element={<ServiceDetail />} /> */}
+            <Route path="services" element={<Services />} />
+            <Route path="services/:slug" element={<ServiceDetail />} />
             <Route path="methodology" element={<Methodology />} />
-            {/* <Route path="insights" element={<Insights />} />
-            <Route path="insights/:slug" element={<Article />} /> */}
+            <Route path="insights" element={<Insights />} />
+            <Route path="insights/:slug" element={<Article />} />
             <Route path="contact" element={<Contact />} />
             <Route path="privacy" element={<Legal kind="privacy" />} />
             <Route path="terms" element={<Legal kind="terms" />} />

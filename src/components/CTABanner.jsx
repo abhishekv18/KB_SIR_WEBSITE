@@ -29,8 +29,8 @@ export default function CTABanner({ title = 'Let’s talk *business.*', text, im
               away behind the text; it melts into the panel colour at the bottom */}
           <div className="relative lg:hidden" aria-hidden>
             <Img id={bg} tone="dark" ratio="auto" className="aspect-[4/3.3] sm:aspect-[16/8]" sizes="100vw" position={bg === 'R13' ? '100% 28%' : isKunal ? (images[bg]?.pos || '60% 35%') : '50% 50%'} alt="" />
-            <div className="absolute inset-0 bg-[linear-gradient(0deg,#151C26_0%,rgb(21_28_38/.85)_18%,rgb(21_28_38/.35)_45%,rgb(21_28_38/.18)_70%,rgb(21_28_38/.3)_100%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(21_28_38/.45)_0%,transparent_55%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(0deg,#151C26_0%,rgb(21_28_38/.78)_18%,rgb(21_28_38/.26)_45%,rgb(21_28_38/.1)_70%,rgb(21_28_38/.22)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(21_28_38/.35)_0%,transparent_55%)]" />
           </div>
 
           {/* desktop: photograph behind the copy */}
@@ -38,8 +38,8 @@ export default function CTABanner({ title = 'Let’s talk *business.*', text, im
             <div className="absolute inset-[-8%]" data-parallax="5">
               <Img id={bg} tone="dark" className="h-full w-full" ratio="auto" sizes="100vw" position={isKunal ? (images[bg]?.pos || '72% 35%') : '50% 50%'} alt="" />
             </div>
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(21_28_38/.96)_0%,rgb(21_28_38/.88)_38%,rgb(21_28_38/.52)_70%,rgb(21_28_38/.32)_100%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(0deg,rgb(21_28_38/.9),transparent)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(21_28_38/.93)_0%,rgb(21_28_38/.8)_38%,rgb(21_28_38/.4)_70%,rgb(21_28_38/.2)_100%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(0deg,rgb(21_28_38/.82),transparent)]" />
           </div>
 
           <div className="relative -mt-16 px-6 pb-6 sm:-mt-14 sm:px-12 sm:pb-8 lg:mt-0 lg:px-16 lg:pt-24">

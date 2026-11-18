@@ -58,16 +58,17 @@ export default function Header() {
         className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[var(--ease-out-expo)] ${hidden && !open ? '-translate-y-[130%]' : 'translate-y-0'}`}
       >
         {/* reference style: one dark frosted-glass bar, inset from the edges, on every page */}
-        <div className="mx-auto max-w-[1320px] px-3 pt-3 sm:px-5 sm:pt-4">
+        {/* on scroll the bar condenses: narrower, shorter and closer to the top */}
+        <div className={`mx-auto px-3 transition-[max-width,padding] duration-700 ease-[var(--ease-out-expo)] sm:px-5 ${scrolled ? 'max-w-[1140px] pt-2 sm:pt-2.5' : 'max-w-[1320px] pt-3 sm:pt-4'}`}>
           <div
-            className={`relative flex h-[4.1rem] items-center gap-6 rounded-full border pl-5 pr-2 backdrop-blur-xl backdrop-saturate-150 transition-[background-color,box-shadow,border-color] duration-700 ease-[var(--ease-out-expo)] sm:pl-7 ${
+            className={`relative flex items-center gap-6 rounded-full border pl-5 pr-1.5 backdrop-blur-xl backdrop-saturate-150 transition-[height,background-color,box-shadow,border-color] duration-700 ease-[var(--ease-out-expo)] sm:pl-7 ${scrolled ? 'h-[3rem] lg:h-[3.15rem]' : 'h-[3.4rem] lg:h-[3.6rem]'} ${
               scrolled || lightHero
-                ? 'border-white/10 bg-[rgb(21_28_38/.82)] shadow-[0_20px_50px_-24px_rgb(21_28_38/.6)]'
+                ? 'border-white/10 bg-[rgb(21_28_38/.86)] shadow-[0_18px_40px_-22px_rgb(21_28_38/.7),inset_0_1px_0_rgb(255_255_255/.06)]'
                 : 'border-white/[0.09] bg-[rgb(21_28_38/.38)] shadow-[inset_0_1px_0_rgb(255_255_255/.06)]'
             }`}
           >
             <Link to="/" className="shrink-0" aria-label="Kunal Bhardwaj — home">
-              <img src="/assets/brand/kb-signature-white.png" alt="Kunal Bhardwaj" width="500" height="200" className="h-auto w-[7.4rem] lg:w-[8rem]" />
+              <img src="/assets/brand/kb-signature-white.png" alt="Kunal Bhardwaj" width="500" height="200" className={`h-auto transition-[width] duration-700 ease-[var(--ease-out-expo)] ${scrolled ? 'w-[5.9rem] lg:w-[6.4rem]' : 'w-[6.6rem] lg:w-[7.2rem]'}`} />
             </Link>
 
             <nav aria-label="Primary" className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
@@ -83,7 +84,7 @@ export default function Header() {
                       onMouseEnter={() => setHover(i)}
                       onFocus={() => setHover(i)}
                       onBlur={() => setHover(null)}
-                      className={({ isActive }) => `relative block whitespace-nowrap rounded-full px-4 py-2 transition-colors duration-300 ${isActive ? 'font-medium text-white' : 'text-white/70 hover:text-white'}`}
+                      className={({ isActive }) => `relative block whitespace-nowrap rounded-full px-4 py-1.5 transition-colors duration-300 ${isActive ? 'font-medium text-white' : 'text-white/70 hover:text-white'}`}
                     >
                       {({ isActive }) => (
                         <>
@@ -99,7 +100,7 @@ export default function Header() {
 
             <Link
               to={site.cta.to}
-              className="ml-auto hidden items-center rounded-full border border-white/20 bg-white/[0.08] px-5 py-2.5 text-[0.88rem] font-medium text-white transition-[background-color,color,border-color] duration-300 hover:border-white hover:bg-white hover:text-navy lg:inline-flex"
+              className="ml-auto hidden items-center rounded-full border border-white/20 bg-white/[0.08] px-5 py-2 text-[0.85rem] font-medium text-white transition-[background-color,color,border-color] duration-300 hover:border-white hover:bg-white hover:text-navy lg:inline-flex"
             >
               {site.cta.label}
             </Link>
@@ -107,7 +108,7 @@ export default function Header() {
             <button
               ref={menuBtn}
               type="button"
-              className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-white/[0.08] text-white lg:hidden"
+              className="ml-auto grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-white/[0.08] text-white lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? 'Close menu' : 'Open menu'}

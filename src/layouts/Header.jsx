@@ -58,17 +58,19 @@ export default function Header() {
         className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[var(--ease-out-expo)] ${hidden && !open ? '-translate-y-[130%]' : 'translate-y-0'}`}
       >
         {/* reference style: one dark frosted-glass bar, inset from the edges, on every page */}
-        {/* on scroll the bar condenses: narrower, shorter and closer to the top */}
-        <div className={`mx-auto px-3 transition-[max-width,padding] duration-700 ease-[var(--ease-out-expo)] sm:px-5 ${scrolled ? 'max-w-[1140px] pt-2 sm:pt-2.5' : 'max-w-[1320px] pt-3 sm:pt-4'}`}>
+        {/* sizes match the KY Creatives header: phones 56px tall (52px scrolled); from 1024px a fixed 60px
+            bar, 1,228px wide at the top narrowing to the 1,200px content width once scrolled
+            (1,388px to 1,360px on screens 1600px and wider), 10 to 12px from the top */}
+        <div className={`mx-auto w-full px-3 transition-[padding] duration-700 ease-[var(--ease-out-expo)] sm:px-5 lg:px-[max(0.625rem,calc(clamp(1rem,0.5rem+3vw,4rem)-0.875rem))] lg:pt-[clamp(0.625rem,1.5vh,0.75rem)] ${scrolled ? 'pt-2 sm:pt-2.5' : 'pt-2.5 sm:pt-4'}`}>
           <div
-            className={`relative flex items-center gap-6 rounded-full border pl-5 pr-1.5 backdrop-blur-xl backdrop-saturate-150 transition-[height,background-color,box-shadow,border-color] duration-700 ease-[var(--ease-out-expo)] sm:pl-7 ${scrolled ? 'h-[3rem] lg:h-[3.15rem]' : 'h-[3.4rem] lg:h-[3.6rem]'} ${
+            className={`relative mx-auto flex w-full items-center gap-6 rounded-full border pl-5 pr-1.5 backdrop-blur-xl backdrop-saturate-150 transition-[height,max-width,background-color,box-shadow,border-color] duration-700 ease-[var(--ease-out-expo)] sm:pl-7 lg:h-[clamp(3.25rem,5vw,3.75rem)] lg:pr-2 ${scrolled ? 'h-[3.25rem] max-w-[1100px] lg:max-w-[1200px] min-[1600px]:!max-w-[1360px]' : 'h-[3.5rem] max-w-[1280px] lg:max-w-[1228px] min-[1600px]:!max-w-[1388px]'} ${
               scrolled || lightHero
                 ? 'border-white/10 bg-[rgb(21_28_38/.86)] shadow-[0_18px_40px_-22px_rgb(21_28_38/.7),inset_0_1px_0_rgb(255_255_255/.06)]'
                 : 'border-white/[0.09] bg-[rgb(21_28_38/.38)] shadow-[inset_0_1px_0_rgb(255_255_255/.06)]'
             }`}
           >
             <Link to="/" className="shrink-0" aria-label="Kunal Bhardwaj — home">
-              <img src="/assets/brand/kb-signature-white.png" alt="Kunal Bhardwaj" width="500" height="200" className={`h-auto transition-[width] duration-700 ease-[var(--ease-out-expo)] ${scrolled ? 'w-[5.9rem] lg:w-[6.4rem]' : 'w-[6.6rem] lg:w-[7.2rem]'}`} />
+              <img src="/assets/brand/kb-signature-white.png" alt="Kunal Bhardwaj" width="500" height="200" className={`h-auto transition-[width] duration-700 ease-[var(--ease-out-expo)] ${scrolled ? 'w-[5.9rem] lg:w-[6.9rem]' : 'w-[6.6rem] lg:w-[7.4rem]'}`} />
             </Link>
 
             <nav aria-label="Primary" className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
